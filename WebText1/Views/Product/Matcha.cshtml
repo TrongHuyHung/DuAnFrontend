@@ -1,0 +1,150 @@
+﻿@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="~/Content/shoping/shoppingcart.css" rel="stylesheet" />
+<section class="container-shopping">
+    <nav class="btn-menu">
+        <ul>
+            <li><a href="/Product/MenuShopping">Tất cả</a></li>
+            <li><a href="/Product/CaPhe">Cà phê</a></li>
+            <li><a href="/Product/AME">A-mê</a></li>
+            <li><a href="/Product/TraTraiCay">Trà trái cây</a></li>
+            <li><a href="/Product/TraSua">Trà sữa</a></li>
+            <li><a href="/Product/Matcha">Matcha</a></li>
+            <li><a href="/Product/Chocolate">Chocolate</a></li>
+            <li><a href="/Product/ThucUongDaXay">Thức uống đá xay</a></li>
+        </ul>
+    </nav>
+    <div class="menu-shopping-right">
+        <select class="btn-menuproduct" onchange="navigateToCategory(this)">
+            <option selected>Chọn</option>
+            <option value="">Tất cả</option>
+            <option value="CaPhe">Cà Phê</option>
+            <option value="AME">A-Mê</option>
+            <option value="TraTraiCay">Trà Trái Cây</option>
+            <option value="TraSua">Trà Sữa</option>
+            <option value="Matcha">Matcha</option>
+            <option value="Chocolate">Chocolate</option>
+            <option value="ThucUongDaXay">Thức uống đá xay</option>
+        </select>
+        @*Row 12*@
+        <h2>Matcha</h2>
+        <div class="row-menuitems">
+            <div class="menuitems" onclick="openModal('Matcha Latte Tây Bắc', 45000, '@Url.Content("~/Content/images/MatchaLatteTayBac.png")', 39000, 45000, 49000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/MatchaLatteTayBac.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Matcha Lattle Tây Bắc</h3>
+                    <div class="item-total">45.000 đ</div>
+                </div>
+            </div>
+            <div class="menuitems" onclick="openModal('Matcha Latte Tây Bắc (Nóng)', 49000, '@Url.Content("~/Content/images/MatchaLatteTayBac(Nong).png")', 45000, 49000, 55000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/MatchaLatteTayBac(Nong).png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Matcha Lattle Tây Bắc(Nóng)</h3>
+                    <div class="item-total">49.000 đ</div>
+                </div>
+            </div>
+            <div class="menuitems" onclick="openModal('Matcha Latte Tây Bắc Sữa Yen Mạch(Nóng)', 55000, '@Url.Content("~/Content/images/MatchaLatteTayBacSuaYenMach(Nong).png")', 49000, 55000, 59000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/MatchaLatteTayBacSuaYenMach(Nong).png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Matcha Latte Tây Bắc Yên Mạch(Nóng)</h3>
+                    <div class="item-total">55.000 đ</div>
+                </div>
+            </div>
+        </div>
+        @*Row 13*@
+        <div class="row-menuitems">
+            <div class="menuitems" onclick="openModal('Matcha Latte Tây Bắc Sữa Yến Mạch', 55000, '@Url.Content("~/Content/images/MatchaLatteTayBacSuaYenMach.png")', 49000, 55000, 59000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/MatchaLatteTayBacSuaYenMach.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Matcha Latte Tây Bắc Sữa Yến Mạch</h3>
+                    <div class="item-total">55.000 đ</div>
+                </div>
+            </div>
+            <div class="menuitems" onclick="openModal('Matcha Latte', 55000, '@Url.Content("~/Content/images/MatchaLatte.png")', 49000, 55000, 59000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/MatchaLatte.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Matcha Latte</h3>
+                    <div class="item-total">55.000 đ</div>
+                </div>
+            </div>
+            <div class="menuitems" onclick="openModal('Matcha Tây Bắc Trân Châu Hoàng Kim', 49000, '@Url.Content("~/Content/images/MatchaTayBacTranChauHoangKim.png")', 45000, 49000, 55000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/MatchaTayBacTranChauHoangKim.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Matcha Tây Bắc Trân Châu Hoàng Kim</h3>
+                    <div class="item-total">49.000 đ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-title">
+                    <h3 id="modalProductName"></h3>
+                    <div class="modal-price"><span id="modalPrice"></span>đ</div>
+                </div>
+            </div>
+
+            <div class="size-section">
+                <h4>Chọn size <span>*</span></h4>
+                <div class="size-options">
+                    <div class="size-option" onclick="selectSize(this, 'Lớn', 55000)">
+                        <span class="size-label">Lớn:</span>
+                        <span class="size-price">55.000đ</span>
+                    </div>
+                    <div class="size-option selected" onclick="selectSize(this, 'Vừa', 49000)">
+                        <span class="size-label">Vừa:</span>
+                        <span class="size-price">49.000đ</span>
+                    </div>
+                    <div class="size-option" onclick="selectSize(this, 'Nhỏ', 45000)">
+                        <span class="size-label">Nhỏ:</span>
+                        <span class="size-price">45.000đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quantity-section">
+                <button class="quantity-btn" onclick="changeQuantity(-1)">−</button>
+                <span class="quantity-value" id="quantity">1</span>
+                <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+            </div>
+
+            <div class="sugar-section">
+                <h4>Ghi chú món</h4>
+                <div class="sugar-options">
+                    <div class="sugar-option" onclick="selectSugar(this)">Không Đường</div>
+                    <div class="sugar-option selected" onclick="selectSugar(this)">50% Đường</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">100% Đường</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">125% Đường</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">0% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">50% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">75% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">100% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">Đá riêng</div>
+                </div>
+            </div>
+
+            <button class="add-to-cart-btn" onclick="addToCart()">Thêm vào giỏ</button>
+        </div>
+    </div>
+    <script src="~/Scripts/clickitem.js"></script>
+</section>

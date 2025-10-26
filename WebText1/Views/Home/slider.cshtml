@@ -1,0 +1,280 @@
+﻿@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<style type="text/css">
+    .slider {
+        padding: 0;
+        max-width: 1450px;
+    }
+
+    .slider-content {
+        height: 450px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        transition: all 0.3s ease;
+    }
+
+    .slider-content a {
+        flex: 0 0 100%;
+    }
+
+    .slider-content img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .slider-content-btn {
+        position: absolute;
+        top: 50%;
+        padding:0 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .slider-content-btn i {
+        color: #333;
+        font-size: 32px;
+        height: 50px;
+        width: 25px;
+        background-color: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform:translateY(-50%);
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+    .slider-content-btn img {
+        position: absolute;
+    }
+
+    .slider-content-btn a:nth-child(2) img {
+        transform: translateX(100%);
+    }
+
+    .slider-content-btn a:nth-child(3) img {
+        transform: translateX(200%);
+    }
+
+    .slider-content-btn a:nth-child(4) img {
+        transform: translateX(300%);
+    }
+
+    .slider-content-btn a:nth-child(5) img {
+        transform: translateX(400%);
+    }
+
+    .slider-content-container {
+        overflow: hidden;
+    }
+
+    /*Banner*/
+    .banner{
+        margin-top: 30px;
+        padding: 32px;
+    }
+
+    .container-banner{
+        margin: 0 7.5px;
+        padding: 0 15px;
+    }
+    .flex-banner{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .menu-banner {
+        box-shadow: 2px 4px 8px #0000004d;
+        margin: 0 15px;
+        margin-bottom: 40px;        
+    }
+    .menu-banner img{
+        max-width: 590px;
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        min-width: 0;
+    }
+    .row-item{
+        display: flex;
+        flex-wrap:nowrap;
+        margin: 0 15px;
+        margin-bottom: 40px;
+    }
+    .menu-item{
+        margin: 0 15px;
+        margin-bottom: 0px;
+    }
+    .menu-item-img {
+        box-shadow: 2px 4px 8px #0000004d;
+        max-width: 270px;
+        width: 100%;
+        height: auto;
+        min-width: 0;
+       
+    }
+    .menu-item-img img{
+        max-width: 270px;
+        height: auto;
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        min-width: 0;
+        display: block;
+    }
+    .menu-item-info{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        padding-top: 12px;
+    }
+    .menu-item-info h3{
+        margin-bottom: 4px;
+        margin-top: 0;
+        font-size: 18px;
+    }
+    .menu-item-info h3 a{
+        text-decoration: none;
+        color: black;
+        transition: all background-color 0.3s;
+    }
+    .menu-item-info h3 a:hover{
+        color: green;
+    }
+    .menu-total{
+        margin-bottom: 10px;
+    }
+
+    /*Ads*/
+    .ads {
+        margin: 32px 0;
+        padding: 32px 64px;
+        position:static;
+        
+    }
+
+    .box-shadow {
+        box-shadow: 2px 4px 8px #0000004d;
+        border-radius: 8px;
+        display: flex;
+        overflow:hidden; 
+        flex-wrap: wrap;
+        max-width: 1000px;
+    }
+
+    .ads-left {
+        padding: 5px 0;
+        margin-right: 12px;
+        flex: 0 0 45%;
+        max-width: 500px;
+    }
+
+    .ads-left img {
+        width: 100%;
+        height:auto;
+        object-fit: cover;
+        max-height: 600px;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .ads-right {
+        padding-top: 18px;
+        flex: 1;
+        min-width: 300px;
+        padding: 24px;
+    }
+
+    .ads-right span {
+        display: block;
+        padding: 18px 0;
+        text-align: justify;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+        word-wrap:break-word;
+    }
+    .ads-right span img{
+        min-width: 0;
+        max-width: 200px
+    }
+
+    .ads-right a {
+        display:inline-block;
+        margin: 12px 24px;
+        cursor: pointer;
+        padding: 10px 40px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 8px;
+        background-color: green;
+        border: none;
+        outline: none;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s;
+    }
+    .ads-right a:hover{
+        background-color: #006400;
+    }
+
+    
+</style>
+<link href="~/Content/slider/slider.css" rel="stylesheet" />
+<section class="slider">
+    <div class="container">
+        <div class="slider-content-container">
+            <div class="slider-content">
+                <a href="#"><img src="~/Content/images/slide1.jpg" alt=""></a>
+                <a href="#"><img src="~/Content/images/slide2.jpg" alt=""></a>
+                <a href="#"><img src="~/Content/images/slide3.jpg" alt=""></a>
+                <a href="#"><img src="~/Content/images/slide4.jpg" alt=""></a>
+                <a href="#"><img src="~/Content/images/slide5.jpg" alt=""></a>
+            </div>
+            <div class="slider-content-btn">
+                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="banner">
+    <div class="container-banner">
+        <div class="flex-banner">
+            <div class="menu-banner">
+                <img src="~/Content/images/slide1_banner.jpg" alt="" />
+            </div>
+            <div class="row-item">
+                <div class="menu-item">
+                    <div class="menu-item-img">
+                        <img src="~/Content/images/comchien.png" alt="Alternate Text" />
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-img">
+                        <img src="~/Content/images/mochik kem.png" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ads">
+    <div class="box-shadow">
+        <div class="ads-left">
+            <img src="~/Content/images/TraXanh.png" alt="">
+        </div>
+        <div class="ads-right">
+            <span><img src="~/Content/images/logoTraXanh.png" alt=""></span>
+            <div style="max-width:400px"><span>Được trồng trọt và chăm chút kỹ lưỡng, nuôi dưỡng từ thổ nhưỡng phì nhiêu, nguồn nước mát lành, bao bọc bởi mây và sương cùng nền nhiệt độ mát mẻ quanh năm, những búp trà ở Tây Bắc mập mạp và xanh mướt, hội tụ đầy đủ dưỡng chất, sinh khí, và tinh hoa đất trời. Chính khí hậu đặc trưng cùng phương pháp canh tác của đồng bào dân tộc nơi đây đã tạo ra Trà Xanh vị mộc dễ uống, dễ yêu, không thể trộn lẫn với bất kỳ vùng miền nào khác.</span></div>
+            <a href="#">Thử ngay</a>
+        </div>
+    </div>
+</section>

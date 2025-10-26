@@ -1,0 +1,132 @@
+﻿@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="~/Content/shoping/shoppingcart.css" rel="stylesheet" />
+<section class="container-shopping">
+    <nav class="btn-menu">
+        <ul>
+            <li><a href="/Product/MenuShopping">Tất cả</a></li>
+            <li><a href="/Product/CaPhe">Cà phê</a></li>
+            <li><a href="/Product/AME">A-mê</a></li>
+            <li><a href="/Product/TraTraiCay">Trà trái cây</a></li>
+            <li><a href="/Product/TraSua">Trà sữa</a></li>
+            <li><a href="/Product/Matcha">Matcha</a></li>
+            <li><a href="/Product/Chocolate">Chocolate</a></li>
+            <li><a href="/Product/ThucUongDaXay">Thức uống đá xay</a></li>
+        </ul>
+    </nav>
+    <div class="menu-shopping-right">
+        <select class="btn-menuproduct" onchange="navigateToCategory(this)">
+            <option selected>Chọn</option>
+            <option value="">Tất cả</option>
+            <option value="CaPhe">Cà Phê</option>
+            <option value="AME">A-Mê</option>
+            <option value="TraTraiCay">Trà Trái Cây</option>
+            <option value="TraSua">Trà Sữa</option>
+            <option value="Matcha">Matcha</option>
+            <option value="Chocolate">Chocolate</option>
+            <option value="ThucUongDaXay">Thức uống đá xay</option>
+        </select>
+        <h2>Thức Uống Đá Xây</h2>
+        @*Row 15*@
+        <div class="row-menuitems">
+            <div class="menuitems" onclick="openModal('Frappe Choco Chip', 65000, '@Url.Content("~/Content/images/FrappeChocoChip.png")', 59000, 65000, 69000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/FrappeChocoChip.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Frappe Choco Chip</h3>
+                    <div class="item-total">65.000 đ</div>
+                </div>
+            </div>
+            <div class="menuitems" onclick="openModal('Frappe Hazelnut', 65000, '@Url.Content("~/Content/images/FrappeHazelnut.png")', 59000, 65000, 69000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/FrappeHazelnut.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>FrappeHazelnut</h3>
+                    <div class="item-total">65.000 đ</div>
+                </div>
+            </div>
+            <div class="menuitems" onclick="openModal('Frappe Almond', 65000, '@Url.Content("~/Content/images/FrappeAlmond.png")', 59000, 65000, 69000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/FrappeAlmond.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Frappe Almond</h3>
+                    <div class="item-total">65.000 đ</div>
+                </div>
+            </div>
+        </div>
+        @*Row 16*@
+        <div class="row-menuitems">
+            <div class="menuitems" onclick="openModal('Frappe Matcha Tây Bắc', 65000, '@Url.Content("~/Content/images/FrappeMatchaTayBac.png")', 59000, 65000, 69000)">
+                <div class="menuitems-img">
+                    <img src="~/Content/images/FrappeMatchaTayBac.png" alt="">
+                </div>
+                <div class="menuitems-info">
+                    <h3>Frappe Matcha Tây Bắc</h3>
+                    <div class="item-total">65.000 đ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-title">
+                    <h3 id="modalProductName"></h3>
+                    <div class="modal-price"><span id="modalPrice"></span>đ</div>
+                </div>
+            </div>
+
+            <div class="size-section">
+                <h4>Chọn size <span>*</span></h4>
+                <div class="size-options">
+                    <div class="size-option" onclick="selectSize(this, 'Lớn', 55000)">
+                        <span class="size-label">Lớn:</span>
+                        <span class="size-price">55.000đ</span>
+                    </div>
+                    <div class="size-option selected" onclick="selectSize(this, 'Vừa', 49000)">
+                        <span class="size-label">Vừa:</span>
+                        <span class="size-price">49.000đ</span>
+                    </div>
+                    <div class="size-option" onclick="selectSize(this, 'Nhỏ', 45000)">
+                        <span class="size-label">Nhỏ:</span>
+                        <span class="size-price">45.000đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quantity-section">
+                <button class="quantity-btn" onclick="changeQuantity(-1)">−</button>
+                <span class="quantity-value" id="quantity">1</span>
+                <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+            </div>
+
+            <div class="sugar-section">
+                <h4>Ghi chú món</h4>
+                <div class="sugar-options">
+                    <div class="sugar-option" onclick="selectSugar(this)">Không Đường</div>
+                    <div class="sugar-option selected" onclick="selectSugar(this)">50% Đường</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">100% Đường</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">125% Đường</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">0% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">50% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">75% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">100% Đá</div>
+                    <div class="sugar-option" onclick="selectSugar(this)">Đá riêng</div>
+                </div>
+            </div>
+
+            <button class="add-to-cart-btn" onclick="addToCart()">Thêm vào giỏ</button>
+        </div>
+    </div>
+    <script src="~/Scripts/clickitem.js"></script>
+</section>
