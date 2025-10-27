@@ -1,0 +1,169 @@
+﻿@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<link href="~/Content/total/total.css" rel="stylesheet" />
+<div class="container">
+    <div class="header">
+        <span class="folder-icon">📁</span>
+        <span>Xác nhận đơn hàng</span>
+    </div>
+
+    <div class="left-section">
+        <div class="section-title">Giao hàng</div>
+
+        <div class="delivery-info">
+            <div class="delivery-icon">🛵</div>
+            <div class="delivery-details">
+                <div class="delivery-method">
+                    <strong>828 Đường Sư Vạn Hạnh</strong>
+                    <span class="method-badge">Đổi phương thức</span>
+                </div>
+                <div class="address">
+                    828 Đường Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố<br>
+                    Hồ Chí Minh, Việt Nam
+                </div>
+            </div>
+            <div class="arrow-right">›</div>
+        </div>
+
+        <div class="delivery-time">
+            <div class="time-title">Nhận hàng trong ngày 15-30 phút</div>
+            <div class="time-subtitle">Vào lúc: Càng sớm càng tốt</div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="Tên người nhận">
+            </div>
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="Số điện thoại">
+            </div>
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="Thêm hướng dẫn giao hàng">
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <div class="section-title">Phương thức thanh toán</div>
+
+            <div class="payment-option">
+                <div class="radio"></div>
+                <span class="payment-logo">💵</span>
+                <span class="payment-name">Tiền mặt</span>
+            </div>
+
+            <div class="payment-option">
+                <div class="radio"></div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff4757'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%23ff4757'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='10' font-weight='bold'%3EVN%3C/text%3E%3C/svg%3E" class="payment-logo" alt="VNPAY">
+                <span class="payment-name">VNPAY</span>
+                <span class="payment-guide">(Hướng dẫn thanh toán VNPAY-QR)</span>
+            </div>
+
+            <div class="payment-option selected">
+                <div class="radio"></div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d1006c'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%23d1006c'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='8' font-weight='bold'%3EMoMo%3C/text%3E%3C/svg%3E" class="payment-logo" alt="MoMo">
+                <span class="payment-name">MoMo</span>
+            </div>
+
+            <div class="payment-option">
+                <div class="radio"></div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230068ff'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%230068ff'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='7' font-weight='bold'%3EZaloPay%3C/text%3E%3C/svg%3E" class="payment-logo" alt="ZaloPay">
+                <span class="payment-name">ZaloPay</span>
+            </div>
+
+            <div class="payment-option">
+                <div class="radio"></div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ee4d2d'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%23ee4d2d'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='6' font-weight='bold'%3EShopeePay%3C/text%3E%3C/svg%3E" class="payment-logo" alt="ShopeePay">
+                <span class="payment-name">ShopeePay</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="summary-header">
+            <div class="section-title">Các món đã chọn</div>
+            <button class="add-item-btn">Thêm món</button>
+        </div>
+
+        <div class="summary-title">Tổng cộng</div>
+
+        <div class="price-row">
+            <span class="price-label">Thành tiền</span>
+            <span class="price-value">0đ</span>
+        </div>
+
+        <div class="price-row">
+            <span class="price-label">Phí giao hàng</span>
+            <span class="price-value">18.000đ</span>
+        </div>
+
+        <div class="price-row" style="color: #9ca3af;">
+            <span class="price-label"></span>
+            <span class="price-value">0đ</span>
+        </div>
+
+        <div class="promo-section">
+            <a href="#" class="promo-link">Khuyến mãi</a>
+        </div>
+
+        <div class="checkout-section">
+            <div class="total-row">
+                <span class="total-label">Thành tiền</span>
+                <span class="total-value">0đ</span>
+            </div>
+            <button class="checkout-btn" onclick="proceedToPayment()">
+                Đặt hàng
+            </button>
+        </div>
+    </div>
+    <script src="~/Scripts/clickitem.js"></script>
+</div>
+<script language="JavaScript">
+    window.addEventListener('DOMContentLoaded', function () {
+        loadCart();
+    });
+
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cartItems');
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p style="text-align: center; color: #999;">Giỏ hàng trống</p>';
+            return;
+        }
+
+        let subtotal = 0;
+        let html = '';
+
+        cart.forEach((item, index) => {
+            subtotal += item.totalPrice;
+            html += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <div class="cart-item-name">${item.name}</div>
+                    <div class="cart-item-options">Size: ${item.size} | ${item.notes}</div>
+                    <div class="cart-item-price">
+                        <span class="cart-item-quantity">x${item.quantity}</span>
+                        <span class="cart-item-total">${item.totalPrice.toLocaleString('vi-VN')}đ</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        });
+
+        cartItemsContainer.innerHTML = html;
+        document.getElementById('subtotal').textContent = subtotal.toLocaleString('vi-VN') + 'đ';
+
+        const shippingFee = 18000;
+        const finalTotal = subtotal + shippingFee;
+        document.getElementById('finalTotal').textContent = finalTotal.toLocaleString('vi-VN') + 'đ';
+    }
+
+    function proceedToPayment() {
+        alert('Đang xử lý đơn hàng...');
+
+    }
+</script>

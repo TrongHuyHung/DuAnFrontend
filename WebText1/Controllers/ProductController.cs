@@ -47,5 +47,9 @@ namespace WebText1.Controllers
         {
             return View();
         }
+        public ActionResult LocalProduct()
+        {
+            return View();
+        }
     }
 }

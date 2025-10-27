@@ -86,14 +86,40 @@ function selectSugar(element) {
 
 function addToCart() {
     const productName = document.getElementById('modalProductName').textContent;
-    const selectedSize = document.querySelector('.size-option.selected .size-label').textContent;
+    const selectedSizeElement = document.querySelector('.size-option.selected .size-label');
+    const selectedSize = selectedSizeElement ? selectedSizeElement.textContent.replace(':', '').trim() : 'Vừa';
     const selectedSugars = Array.from(document.querySelectorAll('.sugar-option.selected'))
         .map(el => el.textContent)
         .join(', ');
 
-    alert(`Đã thêm vào giỏ:\n${productName}\nSize: ${selectedSize}\nSố lượng: ${currentQuantity}\nTùy chọn: ${selectedSugars}\nTổng: ${(currentPrice * currentQuantity).toLocaleString('vi-VN')}đ`);
+    const imageSrc = document.getElementById('modalImage').src;
 
-    closeModal();
+    const product = {
+        name: productName,
+        size: selectedSize,
+        quantity: currentQuantity,
+        price: currentPrice,
+        totalPrice: currentPrice * currentQuantity,
+        notes: selectedSugars,
+        image: imageSrc
+    };
+
+
+    try {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`Đã thêm vào giỏ:\n${productName}\nSize: ${selectedSize}\nSố lượng: ${currentQuantity}\nTùy chọn: ${selectedSugars}\nTổng: ${(currentPrice * currentQuantity).toLocaleString('vi-VN')}đ`);
+
+        console.log('Đang chuyển đến:', '/Product/LocalProduct');
+        window.location.href = '/Product/LocalProduct';
+        closeModal();
+
+    } catch (error) {
+        console.error('Lỗi khi lưu giỏ hàng:', error);
+        alert('Có lỗi xảy ra. Vui lòng thử lại!');
+    }
 }
 
 
