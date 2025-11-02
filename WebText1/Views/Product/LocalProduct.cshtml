@@ -6,7 +6,7 @@
 <link href="~/Content/total/total.css" rel="stylesheet" />
 <div class="container">
     <div class="header">
-        <span class="folder-icon">📁</span>
+        <span class="folder-icon"><i class="fa-solid fa-file" style="color: #FFD43B;"></i></span>
         <span>Xác nhận đơn hàng</span>
     </div>
 
@@ -14,7 +14,7 @@
         <div class="section-title">Giao hàng</div>
 
         <div class="delivery-info">
-            <div class="delivery-icon">🛵</div>
+            <div class="delivery-icon"><i class="fa-solid fa-motorcycle"></i></div>
             <div class="delivery-details">
                 <div class="delivery-method">
                     <strong>828 Đường Sư Vạn Hạnh</strong>
@@ -50,7 +50,7 @@
 
             <div class="payment-option">
                 <div class="radio"></div>
-                <span class="payment-logo">💵</span>
+                <span class="payment-logo"><i class="fa-solid fa-money-bill"></i></span>
                 <span class="payment-name">Tiền mặt</span>
             </div>
 
@@ -87,6 +87,10 @@
             <button class="add-item-btn">Thêm món</button>
         </div>
 
+        <div id="cartItems" style="margin-bottom: 20px;">
+            <!-- Cart items will be loaded here -->
+        </div>
+        
         <div class="summary-title">Tổng cộng</div>
 
         <div class="price-row">
@@ -118,8 +122,8 @@
             </button>
         </div>
     </div>
-    <script src="~/Scripts/clickitem.js"></script>
 </div>
+
 <script language="JavaScript">
     window.addEventListener('DOMContentLoaded', function () {
         loadCart();
@@ -130,7 +134,7 @@
         const cartItemsContainer = document.getElementById('cartItems');
 
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p style="text-align: center; color: #999;">Giỏ hàng trống</p>';
+            cartItemsContainer.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">Giỏ hàng trống</p>';
             return;
         }
 
@@ -149,6 +153,7 @@
                         <span class="cart-item-quantity">x${item.quantity}</span>
                         <span class="cart-item-total">${item.totalPrice.toLocaleString('vi-VN')}đ</span>
                     </div>
+                    <button class="deleteCart">Xóa</button>
                 </div>
             </div>
         `;
@@ -163,7 +168,13 @@
     }
 
     function proceedToPayment() {
-        alert('Đang xử lý đơn hàng...');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+        if (cart.length === 0) {
+            alert('Giỏ hàng trống! Vui lòng thêm sản phẩm.');
+            return;
+        }
+
+        alert('Đang xử lý đơn hàng...');
     }
 </script>
