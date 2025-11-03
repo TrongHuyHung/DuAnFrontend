@@ -6,6 +6,7 @@
     .slider {
         padding: 0;
         max-width: 1450px;
+        margin: 0 auto;
     }
 
     .slider-content {
@@ -33,6 +34,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+        pointer-events: none;
     }
 
     .slider-content-btn i {
@@ -47,6 +49,7 @@
         transform:translateY(-50%);
         border-radius: 5px;
         cursor: pointer;
+        pointer-events: auto;
     }
 
 
@@ -70,8 +73,16 @@
         transform: translateX(400%);
     }
 
+    slider-content-btn i:first-child {
+        margin-left: 10px; 
+    }
+
+    .slider-content-btn i:last-child {
+        margin-right: 10px; 
+    }
     .slider-content-container {
         overflow: hidden;
+        position: relative;
     }
 
     /*Banner*/
@@ -81,13 +92,15 @@
     }
 
     .container-banner{
-        margin: 0 7.5px;
+        margin: 0 auto;
         padding: 0 15px;
+        max-width: 1450px;
     }
     .flex-banner{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content:center;
     }
     .menu-banner {
         box-shadow: 2px 4px 8px #0000004d;
@@ -153,10 +166,9 @@
 
     /*Ads*/
     .ads {
-        margin: 32px 0;
+        margin: 32px auto;
         padding: 32px 64px;
-        position:static;
-        
+        max-width: 1450px;
     }
 
     .box-shadow {
@@ -166,6 +178,7 @@
         overflow:hidden; 
         flex-wrap: wrap;
         max-width: 1000px;
+        margin: 0 auto;
     }
 
     .ads-left {
@@ -274,7 +287,28 @@
         <div class="ads-right">
             <span><img src="~/Content/images/logoTraXanh.png" alt=""></span>
             <div style="max-width:400px"><span>Được trồng trọt và chăm chút kỹ lưỡng, nuôi dưỡng từ thổ nhưỡng phì nhiêu, nguồn nước mát lành, bao bọc bởi mây và sương cùng nền nhiệt độ mát mẻ quanh năm, những búp trà ở Tây Bắc mập mạp và xanh mướt, hội tụ đầy đủ dưỡng chất, sinh khí, và tinh hoa đất trời. Chính khí hậu đặc trưng cùng phương pháp canh tác của đồng bào dân tộc nơi đây đã tạo ra Trà Xanh vị mộc dễ uống, dễ yêu, không thể trộn lẫn với bất kỳ vùng miền nào khác.</span></div>
-            <a href="#">Thử ngay</a>
+            <a href="/Product/Matcha">Thử ngay</a>
         </div>
     </div>
 </section>
+<script language="JavaScript">
+    const rightbtn = document.querySelector(".fa-chevron-right");
+    const leftbtn = document.querySelector(".fa-chevron-left");
+    const imgNumber = document.querySelectorAll(".slider-content img");
+    let count = 0;
+
+    rightbtn.addEventListener("click", function () {
+        count += 1;
+        if (count > imgNumber.length - 1) {
+            count = 0;
+        }
+        document.querySelector(".slider-content").style.right = count * 100 + "%";
+    });
+    leftbtn.addEventListener("click", function () {
+        count -= 1;
+        if (count < 0) {
+            count = imgNumber.length - 1;
+        }
+        document.querySelector(".slider-content").style.right = count * 100 + "%";
+    });
+</script>

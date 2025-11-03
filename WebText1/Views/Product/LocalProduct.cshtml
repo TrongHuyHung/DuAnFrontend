@@ -3,7 +3,9 @@
 }
 
 
-<link href="~/Content/total/total.css" rel="stylesheet" />
+
+<link href="~/Content/total/total1.css" rel="stylesheet" />
+<link href="~/Content/total/address1.css" rel="stylesheet" />
 <div class="container">
     <div class="header">
         <span class="folder-icon"><i class="fa-solid fa-file" style="color: #FFD43B;"></i></span>
@@ -17,15 +19,53 @@
             <div class="delivery-icon"><i class="fa-solid fa-motorcycle"></i></div>
             <div class="delivery-details">
                 <div class="delivery-method">
-                    <strong>828 Đường Sư Vạn Hạnh</strong>
-                    <span class="method-badge">Đổi phương thức</span>
+                    <strong id="addressTitle">828 Đường Sư Vạn Hạnh</strong>
+                    <span class="method-badge" id="editBtn">Đổi phương thức</span>
                 </div>
-                <div class="address">
+                <div class="address" id="addressText">
                     828 Đường Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố<br>
                     Hồ Chí Minh, Việt Nam
                 </div>
             </div>
-            <div class="arrow-right">›</div>
+        </div>
+        @*Modal địa chỉ*@
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Chỉnh sửa địa chỉ</h2>
+                    <button class="close-btn" id="closeBtn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addressForm">
+                        <div class="form-group">
+                            <label for="street">Số nhà, đường <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="street" required placeholder="Nhập số nhà và tên đường">
+                        </div>
+                        <div class="form-group">
+                            <label for="ward">Phường/Xã <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="ward" required placeholder="Nhập phường/xã">
+                        </div>
+                        <div class="form-group">
+                            <label for="district">Quận/Huyện <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="district" required placeholder="Nhập quận/huyện">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Tỉnh/Thành phố <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="city" required placeholder="Nhập tỉnh/thành phố">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Quốc gia <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="country" required placeholder="Nhập quốc gia">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cancel" id="cancelBtn">Hủy</button>
+                    <button type="submit" class="btn btn-save" id="saveBtn">Lưu địa chỉ</button>
+                </div>
+            </div>
         </div>
 
         <div class="delivery-time">
@@ -56,26 +96,26 @@
 
             <div class="payment-option">
                 <div class="radio"></div>
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff4757'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%23ff4757'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='10' font-weight='bold'%3EVN%3C/text%3E%3C/svg%3E" class="payment-logo" alt="VNPAY">
+                <img src="~/Content/images/vnpay.png" class="payment-logo" alt="VNPAY">
                 <span class="payment-name">VNPAY</span>
-                <span class="payment-guide">(Hướng dẫn thanh toán VNPAY-QR)</span>
+                <span class="payment-guide"></span>
             </div>
 
             <div class="payment-option selected">
                 <div class="radio"></div>
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d1006c'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%23d1006c'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='8' font-weight='bold'%3EMoMo%3C/text%3E%3C/svg%3E" class="payment-logo" alt="MoMo">
+                <img src="~/Content/images/momo.png" class="payment-logo" alt="MoMo">
                 <span class="payment-name">MoMo</span>
             </div>
 
             <div class="payment-option">
                 <div class="radio"></div>
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230068ff'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%230068ff'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='7' font-weight='bold'%3EZaloPay%3C/text%3E%3C/svg%3E" class="payment-logo" alt="ZaloPay">
+                <img src="~/Content/images/zalopay.png" class="payment-logo" alt="ZaloPay">
                 <span class="payment-name">ZaloPay</span>
             </div>
 
             <div class="payment-option">
                 <div class="radio"></div>
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ee4d2d'%3E%3Crect width='24' height='18' y='3' rx='3' fill='%23ee4d2d'/%3E%3Ctext x='12' y='15' text-anchor='middle' fill='white' font-size='6' font-weight='bold'%3EShopeePay%3C/text%3E%3C/svg%3E" class="payment-logo" alt="ShopeePay">
+                <img src="~/Content/images/shoppeepay.png" class="payment-logo" alt="ShopeePay">
                 <span class="payment-name">ShopeePay</span>
             </div>
         </div>
@@ -84,18 +124,18 @@
     <div class="right-section">
         <div class="summary-header">
             <div class="section-title">Các món đã chọn</div>
-            <button class="add-item-btn">Thêm món</button>
+            <button class="add-item-btn" onclick="window.location.href = '/Product/MenuShopping'">Thêm món</button>
         </div>
 
         <div id="cartItems" style="margin-bottom: 20px;">
-            <!-- Cart items will be loaded here -->
+            @*itemproduct*@
         </div>
         
         <div class="summary-title">Tổng cộng</div>
 
         <div class="price-row">
             <span class="price-label">Thành tiền</span>
-            <span class="price-value">0đ</span>
+            <span class="price-value" id="subtotal">0đ</span>
         </div>
 
         <div class="price-row">
@@ -105,17 +145,13 @@
 
         <div class="price-row" style="color: #9ca3af;">
             <span class="price-label"></span>
-            <span class="price-value">0đ</span>
-        </div>
-
-        <div class="promo-section">
-            <a href="#" class="promo-link">Khuyến mãi</a>
+            <span class="price-value" id="finalTotal">0đ</span>
         </div>
 
         <div class="checkout-section">
             <div class="total-row">
                 <span class="total-label">Thành tiền</span>
-                <span class="total-value">0đ</span>
+                <span class="total-value" id="finalTotal1">0đ</span>
             </div>
             <button class="checkout-btn" onclick="proceedToPayment()">
                 Đặt hàng
@@ -129,12 +165,95 @@
         loadCart();
     });
 
+    const editBtn = document.getElementById('editBtn');
+    const modal = document.getElementById('editModal');
+    const closeBtn = document.getElementById('closeBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const addressForm = document.getElementById('addressForm');
+    const addressTitle = document.getElementById('addressTitle');
+    const addressText = document.getElementById('addressText');
+    const successMessage = document.getElementById('successMessage');
+
+    let currentAddress = {
+        street: '828 Đường Sư Vạn Hạnh',
+        ward: 'Phường 12',
+        district: 'Quận 10',
+        city: 'Thành phố Hồ Chí Minh',
+        country: 'Việt Nam'
+    };
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        document.getElementById('street').value = currentAddress.street;
+        document.getElementById('ward').value = currentAddress.ward;
+        document.getElementById('district').value = currentAddress.district;
+        document.getElementById('city').value = currentAddress.city;
+        document.getElementById('country').value = currentAddress.country;
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function updateAddressDisplay() {
+        addressTitle.textContent = currentAddress.street;
+        addressText.innerHTML = `${currentAddress.street}, ${currentAddress.ward}, ${currentAddress.district}, ${currentAddress.city}<br>${currentAddress.country}`;
+    }
+
+    function showSuccessMessage() {
+        successMessage.classList.add('show');
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+        }, 3000);
+    }
+
+    editBtn.addEventListener('click', openModal);
+
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    saveBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (addressForm.checkValidity()) {
+            currentAddress = {
+                street: document.getElementById('street').value,
+                ward: document.getElementById('ward').value,
+                district: document.getElementById('district').value,
+                city: document.getElementById('city').value,
+                country: document.getElementById('country').value
+            };
+
+            updateAddressDisplay();
+            closeModal();
+            showSuccessMessage();
+        } else {
+            addressForm.reportValidity();
+        }
+    });
+    addressForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        saveBtn.click();
+    });
+    updateAddressDisplay();
+
+    //phần món
     function loadCart() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const cartItemsContainer = document.getElementById('cartItems');
 
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">Giỏ hàng trống</p>';
+            updateTotals(0);
             return;
         }
 
@@ -153,20 +272,35 @@
                         <span class="cart-item-quantity">x${item.quantity}</span>
                         <span class="cart-item-total">${item.totalPrice.toLocaleString('vi-VN')}đ</span>
                     </div>
-                    <button class="deleteCart">Xóa</button>
+                    <button class="delete-btn" onclick="removeFromCart(${index})">Xóa</button>
                 </div>
             </div>
         `;
         });
 
         cartItemsContainer.innerHTML = html;
+        updateTotals(subtotal);
+    }
+
+    function updateTotals(subtotal) {
         document.getElementById('subtotal').textContent = subtotal.toLocaleString('vi-VN') + 'đ';
 
         const shippingFee = 18000;
         const finalTotal = subtotal + shippingFee;
+        const finalTotal1 = subtotal + shippingFee;
         document.getElementById('finalTotal').textContent = finalTotal.toLocaleString('vi-VN') + 'đ';
+        document.getElementById('finalTotal1').textContent = finalTotal1.toLocaleString('vi-VN') + 'đ';
     }
 
+    function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        if (confirm('Bạn có chắc muốn xóa món này?')) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+    }
     function proceedToPayment() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -175,6 +309,19 @@
             return;
         }
 
-        alert('Đang xử lý đơn hàng...');
+        alert('Bạn đã đặt hàng thành công');
     }
+
+    const paymentOptions = document.querySelectorAll('.payment-option');
+    let selectedPayment = 'momo'; // Giá trị mặc định sản phẩm
+
+    paymentOptions.forEach(option => {
+        option.addEventListener('click', function () {
+            
+            paymentOptions.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedPayment = this.getAttribute('data-payment');
+            console.log('Đã chọn phương thức thanh toán:', selectedPayment);
+        });
+    });
 </script>

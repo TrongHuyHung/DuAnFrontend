@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/header/header.css" rel="stylesheet" />
-    <link href="~/Content/footer/footer.css" rel="stylesheet" />
+    <link href="~/Content/footer/footer1.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/9c0305126a.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
                 <div class="box-header-right">
                     <a href="/Product/LocalProduct">
                         <span><i class="fa-solid fa-cart-shopping"></i></span>
-                        <span>Sản phẩm</span>
+                        <span>Giỏ hàng</span>
                     </a>
                 </div>
                 <div class="box-header-right">
@@ -54,110 +54,268 @@
                 <li>
                     <a href="/Product/CaPhe">CÀ PHÊ</a>
                 </li>
-                
+
             </ul>
         </nav>
     </header>
     <div>
         @RenderBody()
     </div>
-    
-    <footer>
-        <div class="footer-container">
-            <div class="map-section">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.483957584826!2d106.68686731533372!3d10.776899992320065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3f6c46c73f%3A0x6d61a8d6596acf33!2s86-88%20Cao%20Th%E1%BA%AFng%2C%20Ph%C6%B0%E1%BB%9Dng%204%2C%20Qu%E1%BA%ADn%203%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh%2C%20Vi%E1%BB%87t%20Nam!5e0!3m2!1svi!2s!4v1234567890123!5m2!1svi!2s"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-            <div class="footer-top">
-                <div class="footer-column">
-                    <h3>Giới thiệu</h3>
-                    <ul>
-                        <li><a href="#">Về Chúng Tôi</a></li>
-                        <li><a href="#">Sản phẩm</a></li>
-                        <li><a href="#">Khuyến mãi</a></li>
-                        <li><a href="#">Chuyện cà phê</a></li>
-                        <li><a href="#">Cửa Hàng</a></li>
-                        <li><a href="#">Tuyển dụng</a></li>
-                    </ul>
+    <div id="home" class="page active">
+        <footer>
+            <div class="footer-container">
+                <div class="map-section">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.483957584826!2d106.68686731533372!3d10.776899992320065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3f6c46c73f%3A0x6d61a8d6596acf33!2s86-88%20Cao%20Th%E1%BA%AFng%2C%20Ph%C6%B0%E1%BB%9Dng%204%2C%20Qu%E1%BA%ADn%203%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh%2C%20Vi%E1%BB%87t%20Nam!5e0!3m2!1svi!2s!4v1234567890123!5m2!1svi!2s"
+                            allowfullscreen=""
+                            loading="lazy">
+                    </iframe>
                 </div>
 
+                <div class="footer-top">
+                    <div class="footer-column">
+                        <h3>Giới thiệu</h3>
+                        <ul>
+                            <li><a onclick="showPage('about')">Về Chúng Tôi</a></li>
+                            <li><a href="/Product/MenuShopping">Sản phẩm</a></li>
+                            <li><a href="#">Khuyến mãi</a></li>
+                            <li><a href="#">Chuyện cà phê</a></li>
+                            <li><a onclick="showPage('stores')">Cửa Hàng</a></li>
+                            <li><a onclick="showPage('careers')">Tuyển dụng</a></li>
+                        </ul>
+                    </div>
 
-                <div class="footer-column">
-                    <h3>Điều khoản</h3>
-                    <ul>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Chính sách bảo mật thông tin</a></li>
-                        <li><a href="#">Hướng dẫn xuất hóa đơn GTGT</a></li>
-                    </ul>
-                </div>
+                    <div class="footer-column">
+                        <h3>Điều khoản</h3>
+                        <ul>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                            <li><a href="#">Hướng dẫn xuất hóa đơn GTGT</a></li>
+                        </ul>
+                    </div>
 
-
-                <div class="footer-column">
-                    <h3>Liên hệ</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Đặt hàng: 1800 6936</strong>
+                    <div class="footer-column">
+                        <h3>Liên hệ</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div><strong>Đặt hàng: 1800 6936</strong></div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    Tầng 7, TRUNG TÂM THƯƠNG MẠI GIGAMALL,<br>
+                                    240 - 242 Phạm Văn Đồng, P. Hiệp Bình Chánh,<br>
+                                    TP. Thủ Đức, TP.HCM
+                                </div>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                Tầng 7, TRUNG TÂM THƯƠNG MẠI GIGAMALL,<br>
-                                240 - 242 Phạm Văn Đồng, P. Hiệp Bình Chánh,<br>
-                                TP. Thủ Đức, TP.HCM
-                            </div>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/The.Coffee.House.2014"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/thecoffeehousevn/"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="company-info">
+                        <strong>Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN</strong>
+                        Mã số DN: 0312867172 do sở kế hoạch và đầu tư tp. HCM cấp ngày 23/07/2014. Người đại diện: NGÔ NGUYÊN KHẢ<br>
+                        Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh  Điện thoại: (028) 7107 8079 ; Email: hi@thecoffeehouse.vn
+                    </div>
+                    <div class="copyright">
+                        © 2014-2022 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu
                     </div>
                 </div>
             </div>
+        </footer>
+    </div>
 
+    <!-- Trang Về Chúng Tôi -->
+    <div id="about" class="page">
+        <div class="hero-section">
+            <button class="back-button" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i>
+                Quay lại
+            </button>
+            <h1>Về Chúng Tôi</h1>
+            <p>The Coffee House - Nơi mọi người xích lại gần nhau</p>
+        </div>
 
-            <div class="footer-bottom">
-                <div class="company-info">
-                    <strong>Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN</strong>
-                    Mã số DN: 0312867172 do sở kế hoạch và đầu tư tp. HCM cấp ngày 23/07/2014. Người đại diện: NGÔ NGUYÊN KHẢ<br>
-                    Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh  Điện thoại: (028) 7107 8079 ; Email: hi@thecoffeehouse.vn
-                </div>
-                <div class="copyright">
-                    © 2014-2022 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu
-                </div>
+        <div class="content-grid">
+            <div class="content-card">
+                <h3><i class="fas fa-bullseye"></i> Sứ Mệnh</h3>
+                <p>Truyền cảm hứng và nuôi dưỡng tinh thần con người - mỗi người, mỗi tách cà phê và mỗi khu phố.</p>
+            </div>
+            <div class="content-card">
+                <h3><i class="fas fa-eye"></i> Tầm Nhìn</h3>
+                <p>Trở thành thương hiệu cà phê hàng đầu Việt Nam với 1000+ cửa hàng trên toàn quốc.</p>
+            </div>
+            <div class="content-card">
+                <h3><i class="fas fa-heart"></i> Giá Trị</h3>
+                <p>Chất lượng - Tận tâm - Đổi mới - Trách nhiệm - Đam mê</p>
             </div>
         </div>
-    </footer>
-
-
-    <div class="support-button">
-        <i class="fas fa-headset"></i>
     </div>
-    <script language="JavaScript">
-        const rightbtn = document.querySelector(".fa-chevron-right");
-        const leftbtn = document.querySelector(".fa-chevron-left");
-        const imgNumber = document.querySelectorAll(".slider-content img");
-        let count = 0;
 
-        rightbtn.addEventListener("click", function () {
-            count += 1;
-            if (count > imgNumber.length - 1) {
-                count = 0;
-            }
-            document.querySelector(".slider-content").style.right = count * 100 + "%";
-        });
-        leftbtn.addEventListener("click", function () {
-            count -= 1;
-            if (count < 0) {
-                count = imgNumber.length - 1;
-            }
-            document.querySelector(".slider-content").style.right = count * 100 + "%";
-        });
+    <!-- Trang Cửa Hàng -->
+    <div id="stores" class="page">
+        <div class="hero-section">
+            <button class="back-button" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i>
+                Quay lại
+            </button>
+            <h1>Hệ Thống Cửa Hàng</h1>
+            <p>Hơn 500 cửa hàng trên toàn quốc</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Cao Thắng</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 86-88 Cao Thắng, Q.3, TP.HCM<br>
+                    <i class="fas fa-clock"></i> 7:00 - 22:00
+                </p>
+            </div>
+            <div class="content-card">
+                <h3>Gigamall</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 240-242 Phạm Văn Đồng, Thủ Đức<br>
+                    <i class="fas fa-clock"></i> 8:00 - 23:00
+                </p>
+            </div>
+            <div class="content-card">
+                <h3>Nguyễn Huệ</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 57 Nguyễn Huệ, Q.1, TP.HCM<br>
+                    <i class="fas fa-clock"></i> 7:00 - 23:00
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trang Tuyển Dụng -->
+    <div id="careers" class="page">
+        <div class="hero-section">
+            <button class="back-button" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i>
+                Quay lại
+            </button>
+            <h1>Cơ Hội Nghề Nghiệp</h1>
+            <p>Gia nhập đội ngũ The Coffee House</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Barista</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> TP.HCM<br>
+                    <i class="fas fa-dollar-sign"></i> 8-12 triệu/tháng<br>
+                    <i class="fas fa-briefcase"></i> 1-2 năm kinh nghiệm
+                </p>
+            </div>
+            <div class="content-card">
+                <h3>Quản Lý Cửa Hàng</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> TP.HCM, Hà Nội<br>
+                    <i class="fas fa-dollar-sign"></i> 15-20 triệu/tháng<br>
+                    <i class="fas fa-briefcase"></i> 3+ năm kinh nghiệm
+                </p>
+            </div>
+            <div class="content-card">
+                <h3>Nhân Viên Marketing</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> TP.HCM<br>
+                    <i class="fas fa-dollar-sign"></i> 12-18 triệu/tháng<br>
+                    <i class="fas fa-briefcase"></i> 2+ năm kinh nghiệm
+                </p>
+            </div>
+        </div>
+    </div>
+
+    @*<footer>
+            <div class="footer-container">
+                <div class="map-section">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.483957584826!2d106.68686731533372!3d10.776899992320065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3f6c46c73f%3A0x6d61a8d6596acf33!2s86-88%20Cao%20Th%E1%BA%AFng%2C%20Ph%C6%B0%E1%BB%9Dng%204%2C%20Qu%E1%BA%ADn%203%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh%2C%20Vi%E1%BB%87t%20Nam!5e0!3m2!1svi!2s!4v1234567890123!5m2!1svi!2s"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="footer-top">
+                    <div class="footer-column">
+                        <h3>Giới thiệu</h3>
+                        <ul>
+                            <li><a href="#">Về Chúng Tôi</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li><a href="#">Khuyến mãi</a></li>
+                            <li><a href="#">Chuyện cà phê</a></li>
+                            <li><a href="#">Cửa Hàng</a></li>
+                            <li><a href="#">Tuyển dụng</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="footer-column">
+                        <h3>Điều khoản</h3>
+                        <ul>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                            <li><a href="#">Hướng dẫn xuất hóa đơn GTGT</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="footer-column">
+                        <h3>Liên hệ</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Đặt hàng: 1800 6936</strong>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    Tầng 7, TRUNG TÂM THƯƠNG MẠI GIGAMALL,<br>
+                                    240 - 242 Phạm Văn Đồng, P. Hiệp Bình Chánh,<br>
+                                    TP. Thủ Đức, TP.HCM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer-bottom">
+                    <div class="company-info">
+                        <strong>Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN</strong>
+                        Mã số DN: 0312867172 do sở kế hoạch và đầu tư tp. HCM cấp ngày 23/07/2014. Người đại diện: NGÔ NGUYÊN KHẢ<br>
+                        Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh  Điện thoại: (028) 7107 8079 ; Email: hi@thecoffeehouse.vn
+                    </div>
+                    <div class="copyright">
+                        © 2014-2022 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu
+                    </div>
+                </div>
+            </div>
+        </footer>*@
+
+
+    @*<div class="support-button">
+        <i class="fas fa-headset"></i>
+    </div>*@
+    <script language="JavaScript">
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
     </script>
 </body>
 </html>

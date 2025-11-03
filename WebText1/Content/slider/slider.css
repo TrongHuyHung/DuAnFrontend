@@ -26,7 +26,7 @@
     }
 
     .box-shadow {
-        flex-direction: column; /* Xếp dọc trên mobile */
+        flex-direction: column; 
     }
 
     .ads-left {
@@ -36,10 +36,10 @@
         margin-bottom: 12px;
     }
 
-        .ads-left img {
-            border-radius: 8px 8px 0 0; /* Bo góc trên */
-            max-height: 300px;
-        }
+    .ads-left img {
+        border-radius: 8px 8px 0 0; 
+        max-height: 300px;
+    }
 
     .ads-right {
         min-width: 0;
