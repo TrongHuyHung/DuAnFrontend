@@ -251,9 +251,9 @@
     cursor: pointer;
 }
 
-    .close:hover {
-        color: #000;
-    }
+.close:hover {
+    color: #000;
+}
 
 .modal-header {
     display: flex;
@@ -262,11 +262,11 @@
     margin-bottom: 20px;
 }
 
-    .modal-header img {
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
-    }
+.modal-header img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
 
 .modal-title h3 {
     font-size: 24px;

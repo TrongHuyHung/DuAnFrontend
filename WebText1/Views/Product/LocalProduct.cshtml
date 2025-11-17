@@ -20,7 +20,7 @@
             <div class="delivery-details">
                 <div class="delivery-method">
                     <strong id="addressTitle">828 Đường Sư Vạn Hạnh</strong>
-                    <span class="method-badge" id="editBtn">Đổi phương thức</span>
+                    <span class="method-badge" id="editBtn">Thay đổi địa chỉ</span>
                 </div>
                 <div class="address" id="addressText">
                     828 Đường Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố<br>
@@ -75,13 +75,13 @@
 
         <div style="margin-top: 30px;">
             <div class="input-group">
-                <input type="text" class="input-field" placeholder="Tên người nhận">
+                <input type="text" class="input-field" id="recipientName" placeholder="Tên người nhận" maxlength="20">
             </div>
             <div class="input-group">
-                <input type="text" class="input-field" placeholder="Số điện thoại">
+                <input type="text" class="input-field" id="recipientPhone" placeholder="Số điện thoại" maxlength="10">
             </div>
             <div class="input-group">
-                <input type="text" class="input-field" placeholder="Thêm hướng dẫn giao hàng">
+                <input type="text" class="input-field" id="deliveryInstructions" placeholder="Thêm hướng dẫn giao hàng">
             </div>
         </div>
 
@@ -306,6 +306,27 @@
 
         if (cart.length === 0) {
             alert('Giỏ hàng trống! Vui lòng thêm sản phẩm.');
+            return;
+        }
+        const recipientName = document.getElementById('recipientName').value.trim();
+        const recipientPhone = document.getElementById('recipientPhone').value.trim();
+
+        if (!recipientName) {
+            alert('Vui lòng nhập tên người nhận!');
+            document.getElementById('recipientName').focus();
+            return;
+        }
+
+        if (!recipientPhone) {
+            alert('Vui lòng nhập số điện thoại người nhận!');
+            document.getElementById('recipientPhone').focus();
+            return;
+        }
+
+        const phoneRegex = /^[0-9]{10,11}$/;
+        if (!phoneRegex.test(recipientPhone)) {
+            alert('Số điện thoại không hợp lệ! Vui lòng nhập 10-11 chữ số.');
+            document.getElementById('recipientPhone').focus();
             return;
         }
 
